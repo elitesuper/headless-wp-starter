@@ -1,15 +1,5 @@
 ![WordPress + React Starter Kit](frontend/static/images/wordpress-plus-react-header.png)
 
-[![Build status](https://travis-ci.org/postlight/headless-wp-starter.svg)](https://travis-ci.org/postlight/headless-wp-starter)
-
-[Postlight](https://postlight.com)'s Headless WordPress + React Starter Kit is an automated toolset that will spin up three things:
-
-1.  A WordPress backend that serves its data via the [WP REST API](https://developer.wordpress.org/rest-api/) and [GraphQL](http://graphql.org/).
-2.  A sample React frontend powered by the [WP GraphQL API](https://www.wpgraphql.com/), which supports posts, pages, categories, menus, search, and user sign-in.
-3.  Another sample server-side rendered React frontend using [Next.js](https://github.com/zeit/next.js/) powered by the WP REST API.
-
-You can read all about it in [this handy introduction](https://postlight.com/trackchanges/introducing-postlights-wordpress-react-starter-kit).
-
 **What's inside:**
 
 - An automated installer which bootstraps a core WordPress installation that provides an established, stable REST API.
@@ -124,13 +114,6 @@ If you need more advanced functionality check out the available WP-CLI commands:
 
     docker exec wp-headless wp help migratedb
 
-## Extend the REST and GraphQL APIs
-
-At this point you can start setting up custom fields in the WordPress admin, and if necessary, creating [custom REST API endpoints](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/) in the Postlight Headless WordPress Starter theme.
-
-The primary theme code is located in `wordpress/wp-content/themes/postlight-headless-wp`.
-
-You can also [modify and extend the GraphQL API](https://wpgraphql.com/docs/getting-started/about), An example of creating a Custom Type and registering a Resolver is located in: `wordpress/wp-content/themes/postlight-headless-wp/inc/graphql`.
 
 ## REST & GraphQL JWT Authentication
 
@@ -146,19 +129,6 @@ For the GraphQL API:
 
 Make sure to read the [JWT REST](https://github.com/Tmeister/wp-api-jwt-auth) and [JWT GraphQL](https://github.com/wp-graphql/wp-graphql-jwt-authentication) documentation for more info.
 
-## Linting
-
-Remember to lint your code as you go.
-
-To lint WordPress theme modifications, you can use [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) like this:
-
-    docker exec -w /var/www/html/wp-content/themes/postlight-headless-wp wp-headless phpcs -v .
-
-You may also attempt to autofix PHPCS errors:
-
-    docker exec -w /var/www/html/wp-content/themes/postlight-headless-wp wp-headless phpcbf -v .
-
-To lint and format the JavaScript apps, both [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) configuration files are included.
 
 ## Hosting
 
@@ -176,13 +146,3 @@ You will need to also migrate MySQL data to the new MySQL db container.
 **Docker Caching**
 
 In some cases, you need to delete the `wp-headless` image (not only the container) and rebuild it.
-
-**CORS errors**
-
-If you have deployed your WordPress install and are having CORS issues be sure to update `/wordpress/wp-content/themes/postlight-headless-wp/inc/frontend-origin.php` with your frontend origin URL.
-
-See anything else you'd like to add here? Please send a pull request!
-
----
-
-🔬 A Labs project from your friends at [Postlight](https://postlight.com). Happy coding!
